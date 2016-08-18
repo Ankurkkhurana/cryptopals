@@ -13,7 +13,8 @@ class FixedXorTest extends WordSpec with Matchers {
     "do xor" in {
       val input1 = hexStringToBytes("1c0111001f010100061a024b53535009181c")
       val input2 = hexStringToBytes("686974207468652062756c6c277320657965")
-      println(bytesToHexString(FixedXor.xor(input1, input2)))
+      val expectedOutput = "746865206b696420646f6e277420706c6179"
+      bytesToHexString(FixedXor.xor(input1, input2)) should be(expectedOutput)
     }
   }
 }
