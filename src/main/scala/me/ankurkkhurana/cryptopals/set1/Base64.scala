@@ -12,15 +12,12 @@ object Base64 {
   }
 
   def convertToBase64(bytes: Seq[Byte]) = {
-    (0 to 63).foreach(p => println(s"$p ${map(p)}"))
-
     bytes.
       flatMap(p => CryptoUtil.byteToBooleanArray(p)).
       grouped(6).
       map(p => {
-      println(s"$p ${CryptoUtil.bitArrayToByte(p)} ${map(CryptoUtil.bitArrayToByte(p).toInt)}")
+      //println(s"$p ${CryptoUtil.bitArrayToByte(p)} ${map(CryptoUtil.bitArrayToByte(p).toInt)}")
       map(CryptoUtil.bitArrayToByte(p).toInt)
-    }).
-      mkString("")
+    }).mkString("")
   }
 }
